@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "dev": "webpack-dev-server --mode development",
+    "build": "webpack-dev-server --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -12,9 +13,11 @@
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.54",
     "@babel/core": "^7.0.0-beta.54",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.55",
+    "@babel/plugin-transform-arrow-functions": "^7.0.0-beta.55",
+    "@babel/plugin-transform-template-literals": "^7.0.0-beta.55",
     "@babel/preset-env": "^7.0.0-beta.54",
     "@babel/preset-react": "^7.0.0-beta.54",
-    "@babel/preset-stage-1": "^7.0.0-beta.54",
     "babel-loader": "^8.0.0-beta.4",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^17.0.0",
