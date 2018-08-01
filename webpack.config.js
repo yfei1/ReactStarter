@@ -1,7 +1,9 @@
 const webpack = require('webpack');
 
 module.exports = {
-  entry: ['./src/index.jsx'],
+  entry: [
+    './src/index.jsx',
+  ],
   output: {
     path: __dirname,
     publicPath: '/',
@@ -38,7 +40,7 @@ module.exports = {
       poll: 3000,
     },
   },
-plugins: [
-  new webpack.HotModuleReplacementPlugin()
-]
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+  ],
 };
