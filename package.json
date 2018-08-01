@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "client-dev": "webpack-dev-server --mode development",
-    "client-build": "webpack-dev-server --mode production",
+    "client-dev": "webpack-dev-server --config webpack.dev.js --mode development",
+    "client-build": "webpack --config webpack.prod.js --mode production",
     "server-dev": "npx nodemon ./server/index.js",
     "server-build": "node ./server/index.js",
-    "dev": "concurrently \"npm:client-dev\" \"npm:server-dev\"",
-    "build": "concurrently \"npm:client-build\" \"npm:server-build\"",
+    "dev": "concurrently --kill-others-on-fail \"npm:client-dev\" \"npm:server-dev\"",
+    "build": "npm run client-build & npm run server-build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -28,16 +28,19 @@
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.10.0",
-    "webpack": "^4.16.1",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5"
   },
   "dependencies": {
+    "concurrently": "^3.6.1",
     "lodash": "^4.17.10",
     "nodemon": "^1.18.3",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",
-    "redux": "^4.0.0"
+    "redux": "^4.0.0",
+    "webpack": "^4.16.3",
+    "webpack-bundle-analyzer": "^2.13.1",
+    "webpack-dashboard": "^2.0.0"
   }
 }

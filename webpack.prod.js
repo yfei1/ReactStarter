@@ -1,4 +1,6 @@
-const webpack = require('webpack');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const WebpackDashboard = require('webpack-dashboard/plugin');
+
 
 module.exports = {
   entry: [
@@ -8,6 +10,7 @@ module.exports = {
     path: __dirname,
     publicPath: '/',
     filename: 'bundle.js',
+    globalObject: 'this',
   },
   module: {
     // apply the following babel rules to files with .js or .jsx extensions
@@ -30,17 +33,8 @@ module.exports = {
   resolve: {
     extensions: ['*', '.webpack.js', '.web.js', '.js', '.json', '.jsx'],
   },
-  devServer: {
-    historyApiFallback: true,
-    hot: true,
-    open: true,
-    watchContentBase: true,
-    watchOptions: {
-      aggregateTimeout: 300,
-      poll: 3000,
-    },
-  },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+    new WebpackDashboard(),
+    new BundleAnalyzerPlugin(),
   ],
 };
